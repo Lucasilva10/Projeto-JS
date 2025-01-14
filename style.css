@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    outline: none;
+}
+
+body {
+    background-color: #000000;
+}
+
+.logo-devclub {
+    width: 300px;
+    margin: 20px auto;
+    display: block;
+}
+
+
+main {
+    width: 375px;
+    border-radius: 20px;
+    background: #F4F4F4;
+    padding: 44px 24px 23px;
+    margin: 0 auto;
+}
+
+label {
+    color: #777777;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+select,input {
+    border-radius: 4px;
+    border: 1px solid #BBB;
+    background: #FFF;
+    width: 100%;
+    height: 48px;
+    margin-bottom: 24px;
+    appearance: none;
+    padding-left: 18px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #555555;
+}
+
+button{
+    border-radius: 5px;
+    background: #000000;
+    border: none;
+    height: 48px;
+    width: 100%;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+
+button:hover{
+    opacity: 0.8;
+
+}
+
+button:active{
+    opacity: 0.6;
+}
+
+section{
+    border-radius: 20px;
+    border: 1px solid #772FD3; 
+    margin: 36px auto 23px;
+
+}
+
+.currency-img,.logo-center,.currency-img-to-converted{
+    margin: 12px auto 0;
+    display: block;
+}
+
+p,.currency-value-to-converted , .currency-value{
+    text-align: center;
+    margin: 4px auto 0;
+    color: #555555;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.currency,.currency-name-to-converted{
+  color:  #777777;
+  font-size: 14px;
+  font-weight: 400;
+  margin: auto;
+}
