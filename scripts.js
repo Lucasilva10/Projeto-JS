@@ -1,19 +1,21 @@
+
 const buttonConvert = document.querySelector(".button-convert")
 const currencySelect = document.querySelector(".currency-select")
 const currencySelectToConverted = document.querySelector(".currency-select-to-converted")
 
 
 
-function convertValues() {
+async function convertValues(){
 
     const inputCurrencyValue = document.querySelector(".input-currency").value
     const currencyValueToConverted = document.querySelector(".currency-value-to-converted")
     const currencyValueConverted = document.querySelector(".currency-value")
 
-    const bitcoin = 577000.188
-    const dolar = 5.1
-    const euro = 4.9
-    const won = 241.4
+const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then(response => response.json())
+
+const dolar = data.USDBRL.high
+const euro = data.EURBRL.high
+const bitcoin = data.BTCBRL.high
 
     if (currencySelect.value == "dolar") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
@@ -48,20 +50,23 @@ function convertValues() {
 
     }
 
-    if (currencySelect.value == "won") {
-        currencyValueConverted.innerHTML = new Intl.NumberFormat("ko-KR", {
-            style: "currency",
-            currency: "KRW"
-        }).format(inputCurrencyValue * won)
 
     }
+    if (currencySelectToConverted.value == 'dolar-to-converted'){
+            currencyValueToConverted.innerHTML = new Intl.NumberFormat('en-US',{
+                style: 'currency',
+                currency: 'USD'
+            }).format(inputCurrencyValue)
+        }
 
-
-}
+    
 
 function changeCurrency() {
     const currencyName = document.getElementById('currency-name')
     const currencyImage = document.querySelector('.currency-img')
+    const currencyNameToConverted = document.querySelector('.currency-name-to-converted')
+    const currencyImageToConverted = document.querySelector('.currency-img-to-converted')
+   
 
     if (currencySelect.value == 'dolar') {
         currencyName.innerHTML = 'Dólar'
@@ -77,16 +82,13 @@ function changeCurrency() {
         currencyName.innerHTML = 'Bitcoin'
         currencyImage.src = './assets/bitcoin.png'
 
-    } 
-
-    if (currencySelect.value == 'won') {
-        currencyName.innerHTML = 'Won'
-        currencyImage.src = './assets/won.png'
     }
-
+    
     convertValues()
 
 }
 
+
+currencySelectToConverted.addEventListener('change', changeCurrency)
 currencySelect.addEventListener("change", changeCurrency)
 buttonConvert.addEventListener('click', convertValues)
